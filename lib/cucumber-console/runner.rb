@@ -42,11 +42,9 @@ class CucumberConsole::Runner
   end
 
   def self.run(args)
-    ::RailsEnvSwitcher.with_env('test', :reload => true) do
-      reset(args)
-      @runtime.run!
-      @runtime.write_stepdefs_json
-      @runtime.results.failure?
-    end
+    reset(args)
+    @runtime.run!
+    @runtime.write_stepdefs_json
+    @runtime.results.failure?
   end
 end
